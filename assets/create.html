@@ -2,36 +2,39 @@
 
 {% block header %}
 <div class="alert alert-secondary" role="alert">
-	Dynamic value challenges decrease in value as they receive solves. The more solves a dynamic challenge has,
-	the lower its value is to everyone who has solved it.
+	Incorrect penalty challenges award a penalty on solve based on the
+	number of attempts to discourage guessing. Keep in mind that this will
+	only be effective if users can't create additional accounts to use for
+	guessing purposes.
 </div>
 {% endblock %}
 
 
 {% block value %}
 <div class="form-group">
-	<label for="value">Initial Value<br>
+	<label for="value">Value<br>
 		<small class="form-text text-muted">
-			This is how many points the challenge is worth initially.
+			How many points the challenge is worth with no penalty.
 		</small>
 	</label>
-	<input type="number" class="form-control" name="initial" placeholder="Enter value" required>
+	<input type="number" class="form-control" name="value" placeholder="Enter value" required>
 
 </div>
 
 <div class="form-group">
-	<label for="value">Decay Limit<br>
+	<label for="value">Penalty<br>
 		<small class="form-text text-muted">
-			The amount of solves before the challenge reaches its minimum value
+			How many points are deducted for each incorrect attempt
 		</small>
 	</label>
-	<input type="number" class="form-control" name="decay" min="1" placeholder="Enter decay limit" required>
+	<input type="number" class="form-control" name="penalty" placeholder="Enter penalty amount" required>
 </div>
 
 <div class="form-group">
 	<label for="value">Minimum Value<br>
 		<small class="form-text text-muted">
-			This is the lowest that the challenge can be worth
+			Minimum points awarded. This caps the total penalty to be
+			sure this solve will not be a net loss.
 		</small>
 	</label>
 	<input type="number" class="form-control" name="minimum" placeholder="Enter minimum value" required>
@@ -39,5 +42,5 @@
 {% endblock %}
 
 {% block type %}
-<input type="hidden" value="dynamic" name="type" id="chaltype">
+<input type="hidden" value="incorrect_penalty" name="type" id="chaltype">
 {% endblock %}
