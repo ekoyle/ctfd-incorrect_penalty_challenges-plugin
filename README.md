@@ -1,9 +1,8 @@
 # Incorrect Penalty Challenges for CTFd
 
-This CTFd plugin creates a challenge type which awards a penalty for the number
-of failed attempts when the challenge is solved. The total penalty is
-`-(penalty * failures)`, with a cap such that the challenge will not be worth
-less than `minimum` points.
+This CTFd plugin creates a challenge type which awards a penalty of `penalty`
+points for each failed attempt. The total penalty for a given challenge can be
+capped by setting `max_penalty` to something other than 0.
 
 The code is based off of the dynamic_challenges plugin that is included in CTFd.
 
